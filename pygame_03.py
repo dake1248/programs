@@ -2,6 +2,9 @@ import pygame
 from pygame.locals import *
 import sys
 
+
+
+
 white=255,255,255
 blue=0,0,255
 
@@ -66,7 +69,7 @@ while(True):
 	#-----------移动雪花snow
 
 	count+=1
-	if count>2000:
+	if count>4000:
 		count=0
 	#pygame.draw.circle(screen,blue,(snow_x+10,snow_y+10),100,2)
 	#pygame.draw.rect(screen,blue,(100,200,snow_x,snow_y),1)
@@ -98,11 +101,11 @@ while(True):
 	elif keys[K_LEFT]:
 		count_arrow_x+=1
 		if count_arrow_x>250:
-			count_arrow_x=0
+			count_arrow_x=250
 	elif keys[K_RIGHT]:
 		count_arrow_x-=1
 		if count_arrow_x>250:
-			count_arrow_x=0
+			count_arrow_x=250
 
 
 	screen.blit(arrow,(250-count_arrow_x,400-count_arrow_y))
