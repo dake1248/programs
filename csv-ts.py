@@ -14,4 +14,9 @@ for i in range(89304):
 	wc.writerow(list)
 
 
+
+
+
+
+
 csv_w.close()

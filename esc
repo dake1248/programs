@@ -1,0 +1,158 @@
+[33mcommit d3f6460a98ec42411ac85df77de1d5417631bcd3[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: dake1248 <dake124@126.com>
+Date:   Sun Jun 18 14:58:52 2023 +0800
+
+    the commit message for the Changes:the 1st time to commit files in github
+    all done!
+    OK!
+
+[1mdiff --git a/numpy_01.py b/numpy_01.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..600a56a[m
+[1m--- /dev/null[m
+[1m+++ b/numpy_01.py[m
+[36m@@ -0,0 +1,61 @@[m
+[32m+[m[32mimport numpy as np[m
+[32m+[m
+[32m+[m[32ma=np.array([1,2,3,4])[m
+[32m+[m
+[32m+[m[32mb=np.array([5,6,7,8])[m
+[32m+[m
+[32m+[m[32mc=np.array([[1,2,3,4],[5,6,7,8],[9,10,11,12]])[m
+[32m+[m
+[32m+[m[32ma.shape#数组的形状:描述数组各个轴长度的元组(tuple):(4,)[m
+[32m+[m[32mtuple_a=a.shape[m
+[32m+[m[32mc.shape[m
+[32m+[m[32mtuple_c=c.shape#各轴长度：(3, 4)，即0轴长度为3，1轴长度为4[m
+[32m+[m[32mc.shape=4,3#在保持数组元素个数不变的情况下，改变数组每个轴的长度;并不是对数组进行转置,只是改变每个轴的[m
+[32m+[m[32m大小，数组元素在内存中的位置并没有改变[m
+[32m+[m[32mprint(c)#[m
+[32m+[m
+[32m+[m[32md=a.reshape((2,2))#reshape()方法，可以创建指定形状的新数组，而原数组的形状保持不变[m
+[32m+[m[32m#----数组a 和d 其实共享数据存储空间，因此修改其中任意一个数组的元素都会同时修改另外一个数组的内容：[m
+[32m+[m[32ma[0]=100[m
+[32m+[m[32mprint(a)[m
+[32m+[m[32mprint(d)[m
+[32m+[m
+[32m+[m[32ma.dtype#过dtype 参数在创建数组时指定元素类型[m
+[32m+[m[32me=np.array([1,2,3,4],dtype=float)[m
+[32m+[m
+[32m+[m[32m#arange()类似于内置函数range()，通过指定开始值、终值和步长创建表示等差数列的一维数组，注意得到的结果数组不包含终值。[m
+[32m+[m[32mf=np.arange(0,1,0.1)[m
+[32m+[m[32mprint(f)[m
+[32m+[m
+[32m+[m[32m#linspace()通过指定开始值、终值和元素个数创建表示等差数列的一维数组，可以通过endpoint 参数指定是否包含终值，默认值为True，即包含终值。[m
+[32m+[m[32mg_0=np.linspace(0,1,10)[m
+[32m+[m[32mprint(g_0)#array([0.        , 0.11111111, 0.22222222, 0.33333333, 0.44444444,0.55555556, 0.66666667, 0.77777778, 0.88888889, 1.        ])[m
+[32m+[m
+[32m+[m[32mg_1=np.linspace(0,1,10,endpoint=False)[m
+[32m+[m[32mprint(g_1)#:array([0. , 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])[m
+[32m+[m
+[32m+[m[32m#logspace()创建等比数列[m
+[32m+[m[32mh_0=np.logspace(0,1,10)[m
+[32m+[m[32mh_1=np.logspace(0,1,10,endpoint=False)[m
+[32m+[m[32mh_2=np.logspace(0,1,10,base=2,endpoint=False)#基数可以通过base 参数指定，默认值为10。[m
+[32m+[m
+[32m+[m[32m#numpy中的常量[m
+[32m+[m[32mnumpy.pi#pi[m
+[32m+[m[32mnumpy.e#e[m
+[32m+[m
+[32m+[m[32m#字符串[m
+[32m+[m
+[32m+[m[32ms = "abcdefgh"[m
+[32m+[m[32mlist_int=np.fromstring(s,dtype=np.int8)#如果从字符串s 创建一个8 bit 的整数数组，所得到的数组正好就是字符串中每个字符的ASCII 编码[m
+[32m+[m[32mlist_float=np.fromstring(s,dtype=np.float)#把整个字符串转换为一个64 bit 的双精度浮点数数组[m
+[32m+[m[32m'''如果我们用C 语言的二进制方式写了一组double 类型的数值到某个文件中，那么就可以从此文件中读取相应的数据，并通过fromstring()将其转换为[m
+[32m+[m[32mfloat64 类型的数组。或者直接使用fromfile()从二进制文件中读取数据。[m
+[32m+[m[32m'''[m
+[32m+[m[32m#将二进制array写入一个二进制文件中[m
+[32m+[m[32mstr='abcdefghijklmnopqrstuvwxyz'[m
+[32m+[m[32mlist_1=np.fromstring(str,dtype=np.int8)[m
+[32m+[m[32mlist_1.tofile("list_1.bin")[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m
+[1mdiff --git a/numpy_02.py b/numpy_02.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..f3de7da[m
+[1m--- /dev/null[m
+[1m+++ b/numpy_02.py[m
+[36m@@ -0,0 +1,46 @@[m
+[32m+[m[32mimport numpy as np[m
+[32m+[m
+[32m+[m[32m#ufunc函数计算[m
+[32m+[m[32m#ufunc 是universal function 的缩写，它是一种能对数组中每个元素进行操作的函数。NumPy内置的许多ufunc 函数都是在C 语言级别实现的，因此它们的计算速度非常快。[m
+[32m+[m
+[32m+[m[32mx=np.linspace(0,2*np.pi,10)#linspace()产生一个从0 到2pi的等差数组[m
+[32m+[m[32my=np.sin(x)[m
+[32m+[m
+[32m+[m
+[32m+[m[32ma = np.arange(0,4)[m
+[32m+[m[32mb = np.arange(1,5)[m
+[32m+[m
+[32m+[m[32mnp.add(a,b)#add()返回一个数组，数组的每个元素都是两个参数数组中对应元素之和[m
+[32m+[m[32mnp.add(a,b,a)#如果指定了第三个参数out，就不产生新的数组，而是直接将结果保存到指定的数组中[m
+[32m+[m
+[32m+[m
+[32m+[m[32m#常用运算符[m
+[32m+[m[32mx=np.array([1,2,3])[m
+[32m+[m[32my=np.array([4,5,6])[m
+[32m+[m[32mz=np.array([1,2,0])[m
+[32m+[m
+[32m+[m[32m运 算 符 对应的ufunc 函数[m
+[32m+[m[32my = x1 + x2 	add(x1, x2 [, y])[m
+[32m+[m[32my = x1 - x2 	subtract(x1, x2 [, y])[m
+[32m+[m[32my = x1 * x2 	multiply (x1, x2 [, y])[m
+[32m+[m[32my = x1 / x2 	divide (x1, x2 [, y]), 如果两个数组的元素为整数，那么用整数除法[m
+[32m+[m[32my = x1 / x2 	true_divide (x1, x2 [, y]), 总是返回精确的商[m
+[32m+[m[32my = x1 // x2 	 (x1, x2 [, y]), 总是对返回值取整[m
+[32m+[m[32my = -x 			negative(x [,y])[m
+[32m+[m[32my = x1**x2 		power(x1, x2 [, y])[m
+[32m+[m[32my = x1 % x2 r	emainder(x1, x2 [, y]),或mod(x1, x2, [, y])[m
+[32m+[m
+[32m+[m[32m#比较和布尔运算[m
+[32m+[m[32mx>y[m
+[32m+[m[32mx<y[m
+[32m+[m[32mx==y[m
+[32m+[m[32mx==z[m
+[32m+[m[32m#and、or 和not 等关键字,函数名都以“logical_”开头[m
+[32m+[m[32mnp.logical_and(x>y,x<y)[m
+[32m+[m[32mnp.logical_or(x>y,x<y)[m
+[32m+[m[32mnp.logical_not(x==y,x==z)[m
+[32m+[m
+[32m+[m[32mnp.any(x>y)[m
+[32m+[m[32mnp.all(x==z)[m
+[32m+[m
+[32m+[m
+[1mdiff --git a/pygame_01.py b/pygame_01.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..ad4ae27[m
+[1m--- /dev/null[m
+[1m+++ b/pygame_01.py[m
+[36m@@ -0,0 +1,24 @@[m
+[32m+[m[32mimport pygame[m
+[32m+[m[32mfrom pygame.locals import *[m
+[32m+[m[32mimport sys[m
+[32m+[m
+[32m+[m[32mwhite=255,255,255[m
+[32m+[m[32mblue=0,0,255[m
+[32m+[m[32mpygame.init()[m
+[32m+[m[32mscreen=pygame.display.set_mode((500,400))[m
+[32m+[m[32mmyfont=pygame.font.Font(None,50)[m
+[32m+[m[32mtextImage=myfont.render("hello pygame",True,white)[m
+[32m+[m[32mwhile(True):[m
+[32m+[m[32m    for event in pygame.event.get():[m
+[32m+[m[32m            if event.type in (QUIT,KEYDOWN):[m
+[32m+[m[32m                    sys.exit()[m
+[32m+[m[32m    screen.fill(blue)[m
+[32m+[m[32m    screen.blit(textImage,(100,100))[m
+[32m+[m[32m    pygame.draw.circle(screen,white,(300,250),100,10)[m
+[32m+[m[32m    pygame.draw.rect(screen,white,(100,200,230,300),1)[m
+[32m+[m[32m    pygame.draw.rect(screen,white,(10,20,100,300),1)[m
+[32m+[m[32m    pygame.draw.line(screen,white,(100,100),(500,400),2)[m
+[32m+[m[32m    pygame.draw.arc(screen,white,(100,200,200,300),60,90,3)[m
+[32m+[m[32m    pygame.display.update()[m
+[32m+[m[41m  [m
+[32m+[m[41m    [m
+\ No newline at end of file[m

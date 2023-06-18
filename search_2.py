@@ -69,6 +69,8 @@ while input1!="q":
 	#print(content[0][0]+"       "+content[0][6]+"   "+content[0][1]+"     "+content[0][2]+"    "+content[0][3]+"   "+content[0][5]+"  "+content[0][4])
 	print("TS           "+"合同    "+"描述                                    "+"尺寸                          "+"图纸")
 	
+
+	
 print("thanks,88")
 
 '''
